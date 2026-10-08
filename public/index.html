@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VeinGuard Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div><div class="brand">VEINGUARD</div><div class="subtitle">Smart Venous Rehabilitation Belt</div></div>
+  <div id="connection" class="badge offline">● OFFLINE</div>
+</header>
+
+<main class="container">
+<section class="hero">
+  <div><p class="eyebrow">LIVE MONITORING</p><h1>Therapy Belt Dashboard</h1><p class="muted">ESP32 sensor monitoring and vibration feedback</p></div>
+  <div id="systemStatus" class="system normal">STANDBY</div>
+</section>
+
+<section class="cards">
+<article class="card"><div class="card-title">Pressure</div><div id="pressure" class="big">0</div><div class="small">FSR sensor reading</div><div class="meter"><div id="pressureBar"></div></div></article>
+<article class="card"><div class="card-title">Temperature</div><div id="temperature" class="big">0.0°C</div><div class="small">DHT11 sensor</div></article>
+<article class="card"><div class="card-title">Vibration</div><div id="vibration" class="big">OFF</div><div id="therapyText" class="small">Therapy standby</div></article>
+<article class="card"><div class="card-title">Last Update</div><div id="updated" class="big small-big">--</div><div class="small">ESP32 data</div></article>
+</section>
+
+<section class="panel">
+<div><h2>Pressure History</h2><p class="muted">Last 30 readings</p></div>
+<canvas id="chart" width="1000" height="280"></canvas>
+</section>
+
+<section class="info">
+<div><strong>Therapy logic</strong><p>When the FSR pressure crosses the ESP32 threshold, the vibration motor runs for 5 seconds.</p></div>
+<div><strong>Prototype note</strong><p>This dashboard is for project demonstration and monitoring, not medical diagnosis or treatment validation.</p></div>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
